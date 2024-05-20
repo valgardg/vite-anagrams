@@ -1,0 +1,31 @@
+{
+  "name": "vite-anagrams",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "ebuild": "vue-cli-service build",
+    "epack": "electron-packager . --out=dist --overwrite",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "start": "concurrently \"npm run dev\" \"npm run electron\""
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-vue-next": "^0.17.6",
+    "check-if-word": "^1.2.1",
+    "vue": "^3.4.27"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "concurrently": "^8.2.2",
+    "electron": "^30.0.6",
+    "electron-packager": "^17.1.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.6"
+  }
+}
