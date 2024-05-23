@@ -1,30 +1,34 @@
 <template>
-    <div class="container d-flex flex-column justify-content-center">
-        <div class="d-flex flex-row justify-content-between p-0 pt-2">
-            <button class="btn" @click="jumbleLetters">
+    <div class="container d-flex justify-content-center">
+        <div class="game-container">
+            <div class="d-flex flex-row justify-content-between p-0 pt-2">
+                <button class="btn" @click="jumbleLetters">
                 <ShuffleIcon/>
             </button>
             <div class="seconds-text">
                 <div>{{ seconds == 60 ? "01:00" : seconds > 9 ? "00:" + seconds : "00:0" + seconds }}</div>
             </div>
-        </div>
-        <div class="text-center mt-5">
-            <DisplayScore :currentScore="String(score)" :currentWords="String(wordCount)"/>
-        </div>
+            </div>
+            <div class="text-center mt-5">
+                <DisplayScore :currentScore="String(score)" :currentWords="String(wordCount)"/>
+            </div>
 
-        <div class="text-center">
-            <button class="btn enter-button" @click="checkWord" :disabled="!(inputs.length > 2) || !playing">Enter</button>
-        </div>
-
-        <div>
-            <DisplayInputComponent :inputs="inputs" :handleRemoveLetter="handleRemoveLetter"/>
-        </div>
-        
-        <div class="mt-3">
-            <InputComponent :letters="letters" :handleInput="handleInput" :usedInputs="usedInputs" :isPlaying="playing"/>
-        </div>
-        <div class="game-controls d-flex justify-content-center mt-3">
-            <button class="btn btn-warning" @click="startGame" :disabled="playing">Start game</button>
+            <div class="text-center">
+                <button class="btn enter-button" @click="checkWord" :disabled="!(inputs.length > 2) || !playing">Enter</button>
+            </div>
+            
+            <div class="p-5">
+                <div>
+                    <DisplayInputComponent :inputs="inputs" :handleRemoveLetter="handleRemoveLetter"/>
+                </div>
+                
+                <div class="mt-3">
+                    <InputComponent :letters="letters" :handleInput="handleInput" :usedInputs="usedInputs" :isPlaying="playing"/>
+                </div>
+                <div class="game-controls d-flex justify-content-center mt-3">
+                    <button class="btn btn-warning" @click="startGame" :disabled="playing">Start game</button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -170,6 +174,10 @@ const resetValues = () => {
 </script>
 
 <style scoped>
+.game-container {
+    margin-top: 5rem;
+    width: 40rem;
+}
 .enter-button {
     margin: 3rem;
     width: 20rem;
