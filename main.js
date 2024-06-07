@@ -2,7 +2,7 @@ import { app, BrowserWindow } from 'electron';
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 600,
+    width: 680,
     height: 800
   })
 
